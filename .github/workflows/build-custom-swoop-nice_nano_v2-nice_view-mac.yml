@@ -1,0 +1,14 @@
+# Copyright 2022 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+name: "Build Custom swoop nice_nano_v2 nice_view mac"
+on: workflow_dispatch
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["nice_nano_v2"]'
+      shield: '["swoop_left nice_view_adapter nice_view","swoop_right nice_view_adapter nice_view"]'
+      clipboard: '["macswap"]'
+      kconfig: '["CONFIG_ZMK_DISPLAY=y\nCONFIG_ZMK_SLEEP=y"]'
